@@ -17,8 +17,8 @@
     --text: #ffffff;
     --muted: #8b9bb4;
     --good: rgb(0, 0, 128);
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-display: 'Outfit', sans-serif;
+    --font-body: 'Outfit', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 }
 
@@ -235,7 +235,7 @@ body {
 }
 
 .sr-h1 {
-    font-size: clamp(2.3rem, 4.2vw, 3.4rem);
+    font-size: clamp(2rem, 3.8vw, 3rem);
     line-height: 1.1;
     color: var(--text);
 }
@@ -1010,6 +1010,7 @@ body {
     background: rgba(0, 0, 128, 0.15);
     border-radius: 8px;
     padding: 0 10px;
+    margin-left: -10px;
     box-shadow: 0 0 15px rgba(0, 0, 128, 0.2);
 }
 
@@ -1049,6 +1050,7 @@ body {
     display: block;
     white-space: nowrap;
     text-shadow: 0 0 15px rgba(0, 0, 128, 0.4);
+
 }
 
 @keyframes slideWords {
