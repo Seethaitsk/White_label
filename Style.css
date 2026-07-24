@@ -984,6 +984,16 @@ body {
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
 }
 
+@media (max-width: 768px) {
+    .sr-whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 24px;
+    }
+}
+
 /* ---------- Text Slider Animation ---------- */
 .sr-word-slider {
     display: inline-block;
@@ -1056,11 +1066,27 @@ body {
   background: rgba(4, 26, 58, 0.5);
   box-sizing: border-box;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 128, 0.2);
-  border: 1px solid rgb(0,0,128);
+  box-shadow: 0 4px 15px rgba(0, 136, 255, 0.1);
+  border: 1px solid rgba(0, 136, 255, 0.3);
   padding: 1.2rem 1rem;
   border-radius: 8px;
   min-width: min-content;
+  animation: boxBorderPulse 3s infinite;
+}
+
+@keyframes boxBorderPulse {
+  0% {
+    border-color: rgba(0, 136, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 136, 255, 0.1);
+  }
+  50% {
+    border-color: rgba(0, 136, 255, 0.8);
+    box-shadow: 0 4px 20px rgba(0, 136, 255, 0.4), inset 0 0 15px rgba(0, 136, 255, 0.2);
+  }
+  100% {
+    border-color: rgba(0, 136, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 136, 255, 0.1);
+  }
 }
 
 .box:before {
@@ -1079,6 +1105,15 @@ body {
 .box:hover:before {
   left: -50%;
   transform: skewX(-5deg);
+}
+
+/* Hide scrollbar for horizontal containers */
+.sr-hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.sr-hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 
@@ -1241,19 +1276,50 @@ body {
     flex-shrink: 0;
 }
 
+/* Timeline Mobile Responsive */
+@media (max-width: 991px) {
+    .sr-timeline-wrapper {
+        overflow-x: visible;
+        padding-bottom: 0;
+    }
+    .sr-timeline-container {
+        flex-direction: column;
+        gap: 0;
+    }
+    .sr-timeline-container::before {
+        top: 2rem;
+        bottom: 2rem;
+        left: 50%;
+        right: auto;
+        width: 2px;
+        height: auto;
+        transform: translateX(-50%);
+    }
+    .sr-timeline-card {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+    .sr-timeline-connector {
+        transform: rotate(90deg);
+        margin: 15px 0;
+    }
+}
+
 /* ---------- Hero Updates ---------- */
 .sr-hero-tag {
     font-size: 0.75rem;
     font-weight: 600;
-    color: #0088ff;
-    background: rgba(0, 0, 128, 0.1);
-    border: 1px solid rgba(0, 0, 128, 0.3);
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+    border: none;
     padding: 0.35rem 0.75rem;
     border-radius: 20px;
     letter-spacing: 0.05em;
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 128, 0.3);
 }
 .sr-trust-badge {
     border-left: 1px solid rgba(255, 255, 255, 0.2);
@@ -1468,8 +1534,8 @@ body {
 }
 
 /* Bootstrap Color Overrides */
-.text-gradient-custom, .text-info, .text-warning, .text-success, .text-primary {
-    background: linear-gradient(135deg, #ffffff 0%, rgb(0,0,128) 100%) !important;
+.text-gradient-custom, .text-primary {
+    background: linear-gradient(135deg, #ffffff 0%, #33ccff 100%) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
